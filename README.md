@@ -1,4 +1,4 @@
-Role Name
+ansible_role_users
 =========
 
 Ansible role to provision users and add ssh keys.
