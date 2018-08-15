@@ -24,4 +24,4 @@
     user: "{{ item.0.name }}"
     state: "{{ item.0.state | default('present') }}"
     key: "{{ item.1 }}"
-  loop: "{{ host_local_users | subelements('pubkeys') }}"
+  loop: "{{ host_local_users | subelements('pubkeys', 'skip_missing=True') }}"
