@@ -1,0 +1,9 @@
+---
+# defaults file for ansible_role_users
+# host_local_users:
+#   - name: git
+#     shell: "/bin/bash"
+#     state: present
+#     createhome: yes
+#     pubkeys:
+#     - 'ssh-rsa rsakey12345678 username@hostname'
