@@ -1,10 +1,13 @@
 ---
 # tasks file for ansible_role_users
+- include_tasks: groups.yml
+  when: host_local_groups is defined
+
 - name: Configure Groups
   user:
     name: "{{ item.group | default(item.name) }}"
     state: "{{ item.state | default('present') }}"
-  loop: "{{ host_local_users  }}"
+  loop: "{{ host_local_users|flatten(levels=1)  }}"
 
 - name: Configure Users
   user:
@@ -18,7 +21,7 @@
     shell: "{{ item.shell | default('/bin/bash') }}"
     state: "{{ item.state | default('present') }}"
     create_home: "{{ item.createhome | default(omit) }}"
-  loop: "{{ host_local_users }}"
+  loop: "{{ host_local_users|flatten(levels=1) }}"
 
 - name: Add public keys to authorized_hosts
   authorized_key:
