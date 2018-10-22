@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: users
   author: engonzal
   description: Provision users on a host
   license: "license BSD"
