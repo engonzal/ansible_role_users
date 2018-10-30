@@ -1,6 +1,8 @@
 ### Ansible Roles: Users
 Ansible role to provision users and add ssh keys.
 
+[![Build Status](https://travis-ci.org/engonzal/ansible_role_users.svg?branch=master)](https://travis-ci.org/engonzal/ansible_role_users)
+
 #### Role Variables
 Create a list of users following this format:
 ```yaml
