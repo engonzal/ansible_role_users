@@ -25,7 +25,6 @@ provisioner:
           - name: engonzal
             createhome: yes
             shell: "/bin/bash"
-            groups: wheel
             comment: "test all the vars"
             uid: "9876"
             gid: "9876"
