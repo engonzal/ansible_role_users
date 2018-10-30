@@ -1,0 +1,41 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: instance
+    # image: centos:7
+    # Initial tests with geerlingguys docker images
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-centos7}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    groups:
+      - min
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+  inventory:
+    group_vars:
+      min:
+        host_local_users:
+          - name: engonshowel
+          - name: engonzal
+            createhome: yes
+            shell: "/bin/bash"
+            groups: wheel
+            comment: "test all the vars"
+            uid: "9876"
+            gid: "9876"
+            pubkeys:
+              - 'ssh-rsa myr4nd0mk3y engonzal@home'
+  playbooks:
+    converge: ${MOLECULE_PLAYBOOK:-playbook.yml}
+scenario:
+  name: default
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
