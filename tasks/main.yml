@@ -17,7 +17,6 @@
     comment: "{{ item.comment | default(omit) }}"
     uid: "{{ item.uid | default(omit) }}"
     password_lock: "{{ item.password_lock | default(omit) }}"
-    gid: "{{ item.gid | default(omit) }}"
     shell: "{{ item.shell | default('/bin/bash') }}"
     state: "{{ item.state | default('present') }}"
     create_home: "{{ item.createhome | default(omit) }}"
